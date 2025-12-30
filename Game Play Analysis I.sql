@@ -1,11 +1,7 @@
 -- Write your PostgreSQL query statement below
-select a.id 
-from Weather as a 
-where exists(
-    select 1
-    from Weather as b
-    where (a.recordDate - b.recordDate  = 1 and a.temperature  > b.temperature  )
-)
+select player_id , min(event_date ) as first_login 
+from Activity 
+group by player_id 
 /*
   __  __  _____  _   _  _   _     _____   _    _   ____   _____ 
  |  \/  ||_   _|| \ | || | | |   |  __ \ | |  | | / __ \ |_   _|
